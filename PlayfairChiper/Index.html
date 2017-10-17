@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="lib/jquery.min.js"></script>
+    <script src="scripts/playfairCipher.js"></script>
+</head>
+<body>
+    <input type="text" id="key"/>
+    <input type="button" id="btnGenerateKey" value="Generate Key"/>
+    <pre id="showKey"></pre>
+    <input type="text" id="myText"/>
+    <input type="button" id="btnCryptText" value="Crypt" />
+    <input type="button" id="btnDecryptText" value="Decrypt" />
+    <br/>
+    <label>Crypt Text:
+        <span id="cryptText"></span>
+    </label>
+    <br/>
+
+<br/>
+    <label>
+        Decrypt Text:
+        <span id="decryptText"></span>
+    </label>
+
+
+<script>
+    (function () {
+        $('#btnGenerateKey').click(function(){
+            $('#showKey').text(fairplay.printKey($('#key').val()));
+        });
+
+        $('#btnCryptText').click(function(){
+
+            $('#cryptText').text(fairplay.encrypt( $('#key').val(), $('#myText').val()));
+        });
+
+        $('#btnDecryptText').click(function(){
+
+            $('#decryptText').text(fairplay.decrypt( $('#key').val(), $('#cryptText').text()));
+        });
+    })();
+
+</script>
+</body>
+</html>
